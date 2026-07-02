@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<input type="text" id="tarefa" placeholder="Digite uma tarefa">
+<button onclick="adicionarTarefa()">
+    Adicionar tarefa
+</button>
+<button onclick="removerUltimaTarefa()">
+    Remover Última Tarefa
+</button>
+<ul id="lista"></ul>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+function adicionarTarefa(){
+    let tarefa = document.getElementById("tarefa")
+    let lista = document.getElementById("lista")
+    if (tarefa.value != ""){
+        let item = document.createElement("li")
+        item.textContent = tarefa.value
+        lista.appendChild(item)
+        tarefa.value = ""
+    }
+}
+function removerUltimaTarefa(){
+    let lista = document.getElementById("lista")
+    if (lista.lastChild){
+        lista.removeChild(lista.lastChild)
+    } else {
+        alert("Não há tarefas para remover")
+    }
+}
