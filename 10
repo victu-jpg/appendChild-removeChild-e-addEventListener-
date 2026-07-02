@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+    <button id="botaoEmoji">Adicionar emoji</button>
+    <div id="painel"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let botao = document.getElementById("botaoEmoji")
+let painel = document.getElementById("painel")
+botao.addEventListener("click", function (){
+    let emoji = document.createElement("span")
+    emoji.textContent = "🙃"
+    painel.appendChild(emoji)
+})
