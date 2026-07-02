@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<input type="text" id="comentario" placeholder="Digite seu comentário">
+<button onclick="publicarComentario()">
+        Publicar Comentário
+</button>
+<div id="areaComentarios"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+function publicarComentario(){
+    let comentario = document.getElementById("comentario")
+    let area = document.getElementById("areaComentarios")
+    if (comentario.value != ""){
+        let novoComentario = document.createElement("p")
+        novoComentario.textContent = comentario.value
+        area.appendChild(novoComentario)
+        comentario.value = ""
+    } else {
+        alert("Digite um comentário")
+    }
+}
