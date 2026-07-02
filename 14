@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<button onclick="criarBotao()">
+        Criar Botão
+    </button>
+<div id="areaBotoes"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let contador = 1
+function criarBotao(){
+    let area = document.getElementById("areaBotoes")
+    let botao = document.createElement("button")
+    botao.textContent = "Botão " + contador
+    area.appendChild(botao)
+    area.appendChild(document.createElement("br"))
+    contador++
+}
