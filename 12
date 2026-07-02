@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<input type="text" id="tarefa" placeholder="Digite uma tarefa">
+<button id="adicionar">Adicionar Tarefa</button>
+<ul id="lista"></ul>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let campo = document.getElementById("tarefa")
+let botao = document.getElementById("adicionar")
+let lista = document.getElementById("lista")
+botao.addEventListener("click", function (){
+    let textoTarefa = campo.value
+    if (textoTarefa !== ""){
+        let item = document.createElement("li")
+        item.textContent = textoTarefa
+        lista.appendChild(item)
+        campo.value = ""
+    }
+})
