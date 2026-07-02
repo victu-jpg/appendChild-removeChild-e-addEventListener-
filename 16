@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<button onclick="criarQuadrado()">
+        Criar Quadrado
+</button>
+<div id="galeria"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let cores = ["red", "blue", "green", "yellow"]
+let indice = 0
+function criarQuadrado(){
+    let galeria = document.getElementById("galeria")
+    let quadrado = document.createElement("div")
+    quadrado.style.width = "100px"
+    quadrado.style.height = "100px"
+    quadrado.style.backgroundColor = cores[indice]
+    quadrado.style.margin = "10px"
+    galeria.appendChild(quadrado)
+    indice++
+    if (indice == cores.length) {
+        indice = 0
+    }
+}
