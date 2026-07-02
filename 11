@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<div id="container"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let frases = [
+    "Você consegue!",
+    "Nunca desista!",
+    "Continue estudando!",
+    "Seu esforço vale a pena!"
+]
+let container = document.getElementById("container")
+let botao = document.createElement("button")
+botao.textContent = "Nova frase"
+let texto = document.createElement("p")
+container.appendChild(botao)
+container.appendChild(texto)
+botao.addEventListener("click", function (){
+    let indice = Math.floor(Math.random() * frases.length)
+    texto.textContent = frases[indice]
+})
