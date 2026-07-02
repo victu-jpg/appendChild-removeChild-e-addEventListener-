@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add e remove</title>
+</head>
+<body>
+<button onclick="registrarClique()">
+        Clique Aqui
+</button>
+<ul id="lista"></ul>
+</button>
+<div id="galeria"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+function registrarClique(){
+    let lista = document.getElementById("lista")
+    let item = document.createElement("li")
+    item.textContent = "Você clicou no botão!"
+    lista.appendChild(item)
+}
