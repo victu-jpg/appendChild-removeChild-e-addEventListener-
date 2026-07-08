@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Boas vindas</title>
+</head>
+<body>
+<button id="botaoAdicionar">Adicionar mensagem</button>
+    <button id="botaoRemover">Remover mensagem</button>
+    <div id="containerMensagens"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const botaoAdicionar = document.getElementById('botaoAdicionar');
+const botaoRemover = document.getElementById('botaoRemover');
+const container = document.getElementById('containerMensagens');
+let contador = 0;
+botaoAdicionar.addEventListener('click', () => {
+    contador++;
+    const novoParagrafo = document.createElement('p');
+    novoParagrafo.textContent = `Mensagem ${contador}`;
+    container.appendChild(novoParagrafo);
+});
+botaoRemover.addEventListener('click', () => {
+    const ultimaMensagem = container.lastElementChild;
+    if (ultimaMensagem) {
+        container.removeChild(ultimaMensagem);
+    }
+});
