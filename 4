@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Boas vindas</title>
+</head>
+<body>
+<div>
+<input type="text" id="inputProduto" placeholder="Digite o nome do produto">
+<button id="botaoAdicionar">Adicionar produto</button>
+</div>
+    <ul id="listaProdutos"></ul>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const inputProduto = document.getElementById('inputProduto');
+const botaoAdicionar = document.getElementById('botaoAdicionar');
+const listaProdutos = document.getElementById('listaProdutos');
+function adicionarProduto(){
+    const nomeProduto = inputProduto.value.trim();
+    if (nomeProduto === ""){
+        alert("Por favor, digite o nome de um produto");
+        return;
+    }
+    const novoItem = document.createElement('li');
+    novoItem.textContent = nomeProduto;
+    listaProdutos.appendChild(novoItem);
+    inputProduto.value = "";
+    inputProduto.focus();
+}
+botaoAdicionar.addEventListener('click', adicionarProduto);
+inputProduto.addEventListener('keypress', function(evento){
+    if (evento.key === 'Enter'){
+        adicionarProduto();
+    }
+});
