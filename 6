@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Boas vindas</title>
+</head>
+<body>
+<div>
+    <input type="text" id="inputAluno" placeholder="Digite o nome do aluno">
+    <button id="botaoCadastrar">Cadastrar aluno</button>
+    </div>
+    <ul id="listaAlunos"></ul>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const inputAluno = document.getElementById('inputAluno');
+const botaoCadastrar = document.getElementById('botaoCadastrar');
+const listaAlunos = document.getElementById('listaAlunos');
+function cadastrarAluno() {
+    const nomeAluno = inputAluno.value.trim();
+    if (nomeAluno === "") {
+        alert("Por favor, digite o nome do aluno");
+        return;
+    }
+    const novoItem = document.createElement('li');
+    novoItem.textContent = nomeAluno;
+    listaAlunos.appendChild(novoItem);
+    inputAluno.value = "";
+    inputAluno.focus();
+}
+botaoCadastrar.addEventListener('click', cadastrarAluno);
+inputAluno.addEventListener('keypress', function(evento) {
+    if (evento.key === 'Enter') {
+        cadastrarAluno();
+    }
+});
