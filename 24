@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AppendChild</title>
+</head>
+<body>
+<button id="entrar">Entrar</button>
+<button id="salvar">Salvar</button>
+<button id="sair">Sair</button>
+<ul id="historico"></ul>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let historico = document.getElementById("historico");
+function registrar(msg){
+  let item = document.createElement("li");
+  item.textContent = msg + " - " + new Date().toLocaleString();
+  historico.appendChild(item);
+}
+document.getElementById("entrar").addEventListener("click", function (){
+  registrar("O usuário entrou no sistema");
+});
+document.getElementById("salvar").addEventListener("click", function (){
+  registrar("O usuário salvou os dados");
+});
+document.getElementById("sair").addEventListener("click", function (){
+  registrar("O usuário saiu do sistema");
+});
