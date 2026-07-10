@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AppendChild</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button onclick="adicionar()">Adicionar letra</button>
+<button onclick="remover()">Remover letra</button>
+<div id="area"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let area = document.getElementById("area");
+let letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let i = 0;
+function adicionar(){
+  if (i < letras.length){
+    let p = document.createElement("span");
+    p.textContent = letras[i++] + " ";
+    area.appendChild(p);
+  }
+}
+function remover(){
+  if (area.lastChild){
+    area.removeChild(area.lastChild);
+    i--;
+  }
+}
