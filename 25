@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AppendChild</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="criar">Criar bolinha</button>
+<button id="remover">Remover bolinha</button>
+<div id="area"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+#area{
+  width: 600px;
+  height: 400px;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+.bolinha{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 5px;
+}
+
+
+let area = document.getElementById("area");
+document.getElementById("criar").addEventListener("click", function (){
+  let b = document.createElement("div");
+  b.className = "bolinha";
+  b.style.background = "rgb(" +
+    Math.random()*255 + "," +
+    Math.random()*255 + "," +
+    Math.random()*255 + ")";
+  area.appendChild(b);
+});
+document.getElementById("remover").addEventListener("click", function (){
+  if (area.lastChild)
+    area.removeChild(area.lastChild);
+});
