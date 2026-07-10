@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AppendChild</title>
+</head>
+<body>
+<input type="text" id="tarefa" placeholder="Digite uma tarefa">
+<button id="adicionar">Adicionar</button>
+<ul id="lista"></ul>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let lista = document.getElementById("lista");
+document.getElementById("adicionar").addEventListener("click", function (){
+  let li = document.createElement("li");
+  let botao = document.createElement("button");
+  li.textContent = document.getElementById("tarefa").value;
+  botao.textContent = "Excluir";
+  li.appendChild(botao);
+  lista.appendChild(li);
+  botao.addEventListener("click", function (){
+    lista.removeChild(li);
+  });
+});
