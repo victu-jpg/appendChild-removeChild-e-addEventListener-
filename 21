@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AppendChild</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<input type="text" id="msg" placeholder="Digite uma mensagem">
+<button id="gerar">Gerar senha</button>
+<button id="atender">Atender cliente</button>
+<ul id="lista"></ul>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let lista = document.getElementById("lista");
+let gerar = document.getElementById("gerar");
+let atender = document.getElementById("atender");
+let n = 1;
+gerar.addEventListener("click", function (){
+  let item = document.createElement("li");
+  item.textContent = "Senha " + n++;
+  lista.appendChild(item);
+});
+atender.addEventListener("click", function (){
+  if (lista.firstChild)
+    lista.removeChild(lista.firstChild);
+});
