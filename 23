@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AppendChild</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="criar">Adicionar produto</button>
+<button id="remover">Remover último produto</button>
+<div id="catalogo"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+.card{
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  width: 150px;
+}
+
+
+let catalogo = document.getElementById("catalogo");
+let produtos = [
+  ["Notebook", "R$ 3.500,00"],
+  ["Celular", "R$ 1.800,00"],
+  ["Teclado", "R$ 150,00"]
+];
+let i = 0;
+document.getElementById("criar").addEventListener("click", function () {
+  if (i < produtos.length){
+    let card = document.createElement("div");
+    let nome = document.createElement("p");
+    let preco = document.createElement("p");
+    nome.textContent = produtos[i][0];
+    preco.textContent = produtos[i][1];
+    card.className = "card";
+    card.appendChild(nome);
+    card.appendChild(preco);
+    catalogo.appendChild(card);
+    i++;
+  }
+});
+document.getElementById("remover").addEventListener("click", function () {
+  if (catalogo.lastChild) {
+    catalogo.removeChild(catalogo.lastChild);
+    i--;
+  }
+});
