@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AppendChild</title>
+</head>
+<body>
+  <input type="text" id="produto" placeholder="Produto">
+  <button onclick="adicionar()">Adicionar</button>
+  <button onclick="remover()">Remover último produto</button>
+  <ul id="lista"></ul>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+let lista = document.getElementById("lista");
+function adicionar(){
+  let item = document.createElement("li");
+  item.textContent = document.getElementById("produto").value;
+  lista.appendChild(item);
+}
+function remover(){
+  if (lista.lastChild)
+    lista.removeChild(lista.lastChild);
+}
