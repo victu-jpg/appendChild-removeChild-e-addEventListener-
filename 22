@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AppendChild</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="nova">Nova notícia</button>
+<button id="remover">Remover última noticia</button>
+<div id="painel"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let noticias = [
+  "Michael Jackson é visto ensinando passos de moonwalk para astronautas na Lua",
+  "Inteligência artificial confunde aspirador robô com Michael Jackson após detectar moonwalk",
+  "Carlo Ancelotti instala despertador gigante no vestiário da Granja Commary para elenco ficar esperto",
+  "Carlo Ancelotti instala VAR em treino para revisar passes errados de até 2 metros",
+  "Neymar é confirmado para copa de 2030, mas perderá a 10 para Matheus Pereira"
+];
+let painel = document.getElementById("painel");
+let i = 0;
+document.getElementById("nova").addEventListener("click", function (){
+  if (i < noticias.length) {
+    let p = document.createElement("p");
+    p.textContent = noticias[i++];
+    painel.appendChild(p);
+  }
+});
+document.getElementById("remover").addEventListener("click", function (){
+  if (painel.lastChild) {
+    painel.removeChild(painel.lastChild);
+    i--;
+  }
+});
