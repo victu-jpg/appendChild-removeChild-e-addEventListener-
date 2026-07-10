@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AppendChild</title>
+</head>
+<body>
+<input type="text" id="mensagem" placeholder="Digite uma mensagem">
+<button id="enviar">Enviar</button>
+<button id="apagar">Apagar a última mensagem</button>
+<div id="conversa"></div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+let conversa = document.getElementById("conversa");
+document.getElementById("enviar").addEventListener("click", function (){
+  let p = document.createElement("p");
+  p.textContent = document.getElementById("mensagem").value;
+  conversa.appendChild(p);
+});
+document.getElementById("apagar").addEventListener("click", function (){
+  if (conversa.children.length > 0){
+    conversa.removeChild(conversa.lastChild);
+  }
+});
